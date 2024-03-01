@@ -1,0 +1,9 @@
+<a href="https://detectlanguage.com/">DetectLanguage</a> allowances:
+<div style="display:flex; width:100%">
+    <div style="margin-right:10px">Bytes -</div>
+    <%= content_tag(:div, "#{@allowance['bytes']}/#{@allowance['daily_bytes_limit']}", style: "height:24px; width:#{@allowance['bytes_percent']}%; background-color:color-mix(in srgb, red #{@allowance['bytes_percent']}%, green);")%>
+</div>
+<div style="display:flex; width:100%">
+    <div style="margin-right:10px">Requests: -</div>
+    <%= content_tag(:div, "#{@allowance['requests']}/#{@allowance['daily_requests_limit']}", style: "height:24px; width:#{@allowance['requests_percent']}%; background-color:color-mix(in srgb, red #{@allowance['requests_percent']}%, green);")%>
+</div>

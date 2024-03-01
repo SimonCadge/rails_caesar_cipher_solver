@@ -1,0 +1,15 @@
+<h1>Caesar Cipher Solver</h1>
+
+<ul>
+    <% @weighted_permutations.each do |permutation| %>
+        <% if permutation['isReliable'] and permutation['confidence'] > 5 %>
+            <li style='color:green;'>
+        <% else %>
+            <li style='color:red;'>
+        <% end %>
+            <%= "%s - offset %i" % [permutation['text'], permutation['offset']] %>
+        </li>
+    <% end %>
+</ul>
+
+<%= button_to "Process another Cipher", "/solver", :method => :get %>
