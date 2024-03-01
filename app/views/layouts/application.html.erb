@@ -7,9 +7,27 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <%= link_to "Solver", "/solver", class: current_page?("/solver") ? "nav-link active" : "nav-link" %>
+              </li>
+            <li class="nav-item">
+              <%= link_to "Info", "/info", class: current_page?("/info") ? "nav-link active" : "nav-link" %>
+            </li>
+          </ul>
+        </dvi>
+      </div>
+    </nav>
     <%= render "solver/banner" %>
     <%= yield %>
   </body>
