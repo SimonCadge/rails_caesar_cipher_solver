@@ -3,6 +3,6 @@
 <%= form_with url: "/solver/solve", method: :get do |form| %>
     <div class="input-group">
         <%= form.text_field :original, class: 'form-control', placeholder: 'e.g: DWWDFN DW GDZQ' %>
-        <%= form.submit 'Process', :name => nil, disabled: @allowance['status'] != 'ACTIVE', type: 'submit', class: 'btn btn-primary' %>
+        <%= form.submit 'Process', :name => nil, disabled: @allowance['status'] != 'ACTIVE', type: 'submit', class: 'btn tertiary-button' %>
     </div>
 <% end %>
