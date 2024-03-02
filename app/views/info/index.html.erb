@@ -1,5 +1,5 @@
 <h1>Info</h1>
-<p>This is the web version of my <a class="link-info" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a> solver.</p>
+<p>This is the web version of my <a class="link" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a> solver.</p>
 <p>A classic Caesar Cipher only contains uppercase letters and spaces, so I have inferred a few extra rules from the example cipher <i>Vjh cqn Oxaln kn frcq hxd!</i>:</p>
 <div class="pl-3">
     <ol>
@@ -10,7 +10,7 @@
 <p>When the user enters a cipher, the website generates all 26 potential permutations of the cipher and submits them to the DetectLanguage API which tells us how likely any sentence is to be a human language.</p>
 <p>The results are ranked in order of likelihood, and any that we deem are probably human language are coloured green, while any that seem like nonsense are coloured red.</p>
 <p>Since I'm using the free tier of the DetectLanguage API I can only process ~38 ciphers per day, so I have added an API usage bar at the bottom to indicate how close we are to running out. I also added memoization to the API call, meaning that if the user enters a cipher that we have seen before we can just use the cached result and avoid re-calling the API.</p>
-<p>For more information please check out the <a href="https://github.com/SimonCadge/ruby_caesar_cipher_solver" class="link-info">Original Ruby Command Line Version GitHub</a> and the <a href="https://github.com/SimonCadge/rails_caesar_cipher_solver" class="link-info">Ruby on Rails Web Version GitHub</a>.</p>
+<p>For more information please check out the <a href="https://github.com/SimonCadge/ruby_caesar_cipher_solver" class="link">Original Ruby Command Line Version GitHub</a> and the <a href="https://github.com/SimonCadge/rails_caesar_cipher_solver" class="link">Ruby on Rails Web Version GitHub</a>.</p>
 <h6>Features</h6>
 <div class="pl-3">
     <ul>
