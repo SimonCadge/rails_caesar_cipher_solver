@@ -1,22 +1,33 @@
 <h1>Info</h1>
-<p>This is the web version of my Caesar Cipher solver.</p>
+<p>This is the web version of my <a class="link-info" href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a> solver.</p>
+<p>A classic Caesar Cipher only contains uppercase letters and spaces, so I have inferred a few extra rules from the example cipher <i>Vjh cqn Oxaln kn frcq hxd!</i>:</p>
+<div class="pl-3">
+    <ol>
+        <li>Letter case is maintained (e.g. Z -> A not Z -> a).</li>
+        <li>Any non-alphabetic characters (e.g. spaces, punctuation) are ignored.</li>
+    </ol>
+</div>
 <p>When the user enters a cipher, the website generates all 26 potential permutations of the cipher and submits them to the DetectLanguage API which tells us how likely any sentence is to be a human language.</p>
 <p>The results are ranked in order of likelihood, and any that we deem are probably human language are coloured green, while any that seem like nonsense are coloured red.</p>
 <p>Since I'm using the free tier of the DetectLanguage API I can only process ~38 ciphers per day, so I have added an API usage bar at the bottom to indicate how close we are to running out. I also added memoization to the API call, meaning that if the user enters a cipher that we have seen before we can just use the cached result and avoid re-calling the API.</p>
 <p>For more information please check out the <a href="https://github.com/SimonCadge/ruby_caesar_cipher_solver" class="link-info">Original Ruby Command Line Version GitHub</a> and the <a href="https://github.com/SimonCadge/rails_caesar_cipher_solver" class="link-info">Ruby on Rails Web Version GitHub</a>.</p>
 <h6>Features</h6>
-<ul>
-    <li>Calculate all 26 possible permutations of a cipher.</li>
-    <li>Use DetectLanguage API to rank them according to how likely they are to be correct.</li>
-    <li>Display remaining API allowance, and disable form input when allowance is reached.</li>
-    <li>Cache results of API call to avoid repeated calls.</li>
-    <li>Responsive design adapts to suit mobile or desktop displays.</li>
-</ul>
+<div class="pl-3">
+    <ul>
+        <li>Calculate all 26 possible permutations of a cipher.</li>
+        <li>Use DetectLanguage API to rank them according to how likely they are to be correct.</li>
+        <li>Display remaining API allowance, and disable form input when allowance is reached.</li>
+        <li>Cache results of API call to avoid repeated calls.</li>
+        <li>Responsive design adapts to suit mobile or desktop displays.</li>
+    </ul>
+</div>
 <h6>Tools</h6>
-<ul>
-    <li>Ruby 3.2.0</li>
-    <li>Rails 7.1.3.2</li>
-    <li>Tests - Rspec</li>
-    <li>Theming - Bootstrap (bootstrap-rubygem 5.3.2)</li>
-    <li>Hosting - DigitalOcean droplet, Sydney region</li>
-</ul>
+<div class="pl-3">
+    <ul>
+        <li>Ruby 3.2.0</li>
+        <li>Rails 7.1.3.2</li>
+        <li>Tests - Rspec</li>
+        <li>Theming - Bootstrap (bootstrap-rubygem 5.3.2)</li>
+        <li>Hosting - DigitalOcean droplet, Sydney region</li>
+    </ul>
+</div>
