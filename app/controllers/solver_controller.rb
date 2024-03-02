@@ -5,7 +5,7 @@ class SolverController < ApplicationController
   end
 
   def solve
-    original_permutation = params[:original]
+    original_permutation = params[:original].strip
     all_permutations = CipherSolver.generate_permutations(original_permutation)
     @weighted_permutations = CipherSolver.assign_weights_to_permutations(all_permutations)
   end

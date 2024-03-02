@@ -34,7 +34,15 @@ class CipherSolver
     end
 
     def self.assign_weights_to_permutations(permutations)
-        language_guesses = DetectLanguage.detect(permutations.map {|permutation| permutation['text']})
+        # Sorting the permutations by text means that if we have a set of permutations in the cache and the user enters another
+        # permutation from that set it will still be found in the cache.
+        permutations = permutations.sort_by {|obj| obj['text']}
+        # Add memoization, so calling this method with the same set of permutations won't re-calculate the results.
+        # Unfortunately if we call a different 
+        @all_language_guesses ||= Hash.new do |h, key|
+            h[key] = DetectLanguage.detect(key)
+        end
+        language_guesses = @all_language_guesses[permutations.map {|permutation| permutation['text']}]
         weighted_permutations = []
         
         for i in 0...permutations.length
