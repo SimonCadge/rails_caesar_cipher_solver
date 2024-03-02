@@ -1,9 +1,8 @@
 <h1>Caesar Cipher Solver</h1>
 
 <%= form_with url: "/solver/solve", method: :get do |form| %>
-    <div>
-        <%= form.label :original, "Caesar Cipher:" %>
-        <%= form.text_field :original %>
-        <%= form.submit 'Process', :name => nil, disabled: @allowance['status'] != 'ACTIVE' %>
+    <div class="input-group">
+        <%= form.text_field :original, class: 'form-control', placeholder: 'e.g: DWWDFN DW GDZQ' %>
+        <%= form.submit 'Process', :name => nil, disabled: @allowance['status'] != 'ACTIVE', type: 'submit', class: 'btn btn-primary' %>
     </div>
 <% end %>

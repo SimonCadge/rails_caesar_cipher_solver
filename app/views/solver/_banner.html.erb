@@ -1,9 +1,13 @@
-<a href="https://detectlanguage.com/">DetectLanguage</a> allowances:
-<div style="display:flex; width:100%">
-    <div style="margin-right:10px">Bytes -</div>
-    <%= content_tag(:div, "#{@allowance['bytes']}/#{@allowance['daily_bytes_limit']}", style: "height:24px; width:#{@allowance['bytes_percent']}%; background-color:color-mix(in srgb, red #{@allowance['bytes_percent']}%, green);")%>
+<h6 data-bs-toggle="tooltip" data-bs-placement="top" title="Remaining free DetectLanguage API usage"><a class="link-info" href="https://detectlanguage.com/">DetectLanguage</a> allowances:</h6>
+<div class="col">
+    Bytes:
+    <div class="progress">
+        <%= content_tag(:div, "#{@allowance['bytes']}/#{@allowance['daily_bytes_limit']}", {"class"=>"progress-bar", "role"=>"progressbar", "aria-valuenow"=>"#{@allowance['bytes']}", "aria-valuemin"=>"0", "aria-valuemax"=>"#{@allowance['bytes_daily_limit']}", "style"=>"width:#{@allowance['bytes_percent']}%"})%>
+    </div>
 </div>
-<div style="display:flex; width:100%">
-    <div style="margin-right:10px">Requests: -</div>
-    <%= content_tag(:div, "#{@allowance['requests']}/#{@allowance['daily_requests_limit']}", style: "height:24px; width:#{@allowance['requests_percent']}%; background-color:color-mix(in srgb, red #{@allowance['requests_percent']}%, green);")%>
+<div class="col">
+    Requests:
+    <div class="progress">
+        <%= content_tag(:div, "#{@allowance['requests']}/#{@allowance['daily_requests_limit']}", {"class"=>"progress-bar", "role"=>"progressbar", "aria-valuenow"=>"#{@allowance['requests']}", "aria-valuemin"=>"0", "aria-valuemax"=>"#{@allowance['requests_daily_limit']}", "style"=>"width:#{@allowance['requests_percent']}%"})%>
+    </div>
 </div>

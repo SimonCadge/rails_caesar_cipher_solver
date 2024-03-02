@@ -1,15 +1,12 @@
 <h1>Caesar Cipher Solver</h1>
 
-<ul>
+<ul class="list-group m-2">
     <% @weighted_permutations.each do |permutation| %>
-        <% if permutation['isReliable'] and permutation['confidence'] > 5 %>
-            <li style='color:green;'>
-        <% else %>
-            <li style='color:red;'>
+        <%= content_tag :li, {"class"=>"list-group-item d-flex justify-content-between align-items-center #{(permutation['isReliable'] and permutation['confidence'] > 5) ? 'list-group-item-success' : 'list-group-item-danger'}", "data-bs-toggle"=>"tooltip", "data-bs-placement"=>"top", "title"=>"DetectLanguage confidence: #{permutation['confidence']}"} do %>
+            <%= "%s" % permutation['text'] %>
+            <span class="badge bg-primary rounded-pill">Offset: <%= "%s" % permutation['offset'] %></span>
         <% end %>
-            <%= "%s - offset %i" % [permutation['text'], permutation['offset']] %>
-        </li>
     <% end %>
 </ul>
 
-<%= button_to "Process another Cipher", "/solver", :method => :get %>
+<%= button_to "Process another Cipher", "/solver", :method => :get, class: "btn btn-primary" %>
