@@ -26,7 +26,7 @@ Navigate to the root page at `http://127.0.0.1:3000/`
 
 ### Output:
 Homepage:  
-![Homepage](image.png)  
+![Homepage](image.png)
 
 Results:  
 ![Results](image-1.png)
