@@ -3,6 +3,10 @@
 <%= form_with url: "/solver/solve", method: :get do |form| %>
     <div class="input-group">
         <%= form.text_field :original, class: 'form-control', placeholder: 'e.g: DWWDFN DW GDZQ' %>
-        <%= form.submit 'Process', :name => nil, disabled: @allowance['status'] != 'ACTIVE', type: 'submit', class: 'btn tertiary-button' %>
+        <% if @allowance['status'] == 'ACTIVE' %>
+            <%= form.submit 'Process', :name => nil, type: 'submit', class: 'btn tertiary-button' %>
+        <% else %>
+            <%= form.submit 'Process', :name => nil, disabled: true, type: 'submit', class: 'btn tertiary-button', style: 'pointer-events:auto;', "data-toggle": "tooltip", "data-placement": "top", title: "Daily DetectLanguage API Allowance Exceeded" %>
+        <% end %>
     </div>
 <% end %>

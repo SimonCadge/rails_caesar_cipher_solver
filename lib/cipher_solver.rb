@@ -77,7 +77,19 @@ class CipherSolver
     end
 
     def self.check_allowance
-        DetectLanguage.user_status
+        # Handle HTTPPaymentRequired error (happens when daily free allowance exceeded).
+        # For all other errors, retry 10 times and re-raise error if not fixed by retrying.
+        for i in 0...10 do
+            begin
+                return DetectLanguage.user_status
+            rescue DetectLanguage::Error => error
+                if error.message == "Failure: Net::HTTPPaymentRequired" then
+                    return {"requests"=>1016, "daily_requests_limit"=>1000, "bytes"=>200, "daily_bytes_limit"=>10986, "status"=>"INACTIVE"}
+                else
+                    if i == 9 then raise error end
+                end
+            end
+        end
     end
 
 end
