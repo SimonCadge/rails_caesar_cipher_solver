@@ -10,12 +10,16 @@ end
 
 class CipherSolver
     def self.inc_chars_with_wraparound(input_string)
+        lowercase_a = 97
+        lowercase_z = 122
+        uppercase_A = 65
+        uppercase_Z = 90
         input_string.chars.map do |c| 
-            if (c.ord >= 97 and c.ord < 122) or (c.ord >= 65 and c.ord < 90)
+            if (c.ord >= lowercase_a and c.ord < lowercase_z) or (c.ord >= uppercase_A and c.ord < uppercase_Z)
                 (c.ord + 1).chr
-            elsif c.ord == 122
+            elsif c.ord == lowercase_z
                 'a'
-            elsif c.ord == 90
+            elsif c.ord == uppercase_Z
                 'A'
             else
                 c
